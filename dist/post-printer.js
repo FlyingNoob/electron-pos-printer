@@ -179,7 +179,7 @@ var PosPrinter = /** @class */ (function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            if (line.type === 'image' && !line.path) {
+                            if (line.type === 'image' && (!line.path && !line.src)) {
                                 window.close();
                                 reject(new Error('An Image path is required for type image').toString());
                                 return [2 /*return*/];
