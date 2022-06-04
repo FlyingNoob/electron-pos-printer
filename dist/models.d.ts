@@ -34,6 +34,7 @@ export interface PosPrintTableField {
     value?: string;
     path?: string;
     css?: any;
+    src?: string;
     style?: string;
     width?: string;
     height?: string;
@@ -57,6 +58,7 @@ export interface PosPrintData {
     displayValue?: boolean;
     position?: PosPrintPosition;
     path?: string;
+    src?: string;
     tableHeader?: PosPrintTableField[] | string[];
     tableBody?: PosPrintTableField[][] | string[][];
     tableFooter?: PosPrintTableField[] | string[];
