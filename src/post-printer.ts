@@ -121,7 +121,7 @@ export class PosPrinter {
     private static renderPrintDocument(window: any, data: PosPrintData[]): Promise<any> {
         return new Promise((resolve, reject) => {
             data.forEach(async (line, lineIndex) => {
-                if (line.type === 'image' && !line.path) {
+                if (line.type === 'image' && !line.path && !line.src) {
                     window.close();
                     reject(new Error('An Image path is required for type image').toString());
                     return;

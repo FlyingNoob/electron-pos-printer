@@ -179,7 +179,7 @@ var PosPrinter = /** @class */ (function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
-                            if (line.type === 'image' && (!line.path && !line.src)) {
+                            if (line.type === 'image' && !line.path && !line.src) {
                                 window.close();
                                 reject(new Error('An Image path is required for type image').toString());
                                 return [2 /*return*/];
@@ -215,7 +215,7 @@ exports.PosPrinter = PosPrinter;
 */
 function sendIpcMsg(channel, webContents, arg) {
     return new Promise(function (resolve, reject) {
-        ipcMain.once(channel + "-reply", function (event, result) {
+        ipcMain.once("".concat(channel, "-reply"), function (event, result) {
             if (result.status) {
                 resolve(result);
             }

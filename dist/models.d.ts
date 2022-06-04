@@ -34,10 +34,10 @@ export interface PosPrintTableField {
     value?: string;
     path?: string;
     css?: any;
-    src?: string;
     style?: string;
     width?: string;
     height?: string;
+    src?: string;
 }
 /**
  * @interface

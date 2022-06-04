@@ -237,7 +237,7 @@ function getImageFromPath(arg) {
         }else {
             uri =arg.src;
         }
-
+        console.log("img uri:",uri)
         const img_con = $(`<div style="width: 100%;text-align:${arg.position ? arg.position : 'left'}"></div>`);
         arg.style = arg.style ? arg.style : '';
         const img = $(`<img src="${uri}" style="height: ${arg.height ? arg.height : '50px'};width: ${arg.width ? arg.width : 'auto'};${arg.style}" />`);

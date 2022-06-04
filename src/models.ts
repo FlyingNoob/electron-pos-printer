@@ -63,7 +63,8 @@ export interface PosPrintData {
     fontsize?: number;       // for barcodes
     displayValue?: boolean;  // for barcodes
     position?: PosPrintPosition;        // for type image, barcode and qrCode; values: 'left'| 'center' | 'right'
-    path?: string;                      // image path
+    path?: string;   
+    src?: string;                   // image path
     tableHeader?: PosPrintTableField[] | string[],        // specify the columns in table header, to be used with type table
     tableBody?: PosPrintTableField[][] | string[][],         //  specify the columns in table body, to be used with type table
     tableFooter?: PosPrintTableField[] | string[],      //  specify the columns in table footer, to be used with type table
