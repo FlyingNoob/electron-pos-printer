@@ -42,6 +42,7 @@ export interface PosPrintTableField {
     style?: string;
     width?: string;  // for type image
     height?: string; // for type image
+    src?:string; //for type image
 }
 
 /**
