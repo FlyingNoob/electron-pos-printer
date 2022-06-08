@@ -109,17 +109,18 @@ var PosPrinter = /** @class */ (function () {
             mainWindow.webContents.on('did-finish-load', function () { return __awaiter(_this, void 0, void 0, function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
-                        case 0: 
-                        // get system printers
-                        // const system_printers = mainWindow.webContents.getPrinters();
-                        // const printer_index = system_printers.findIndex(sp => sp.name === options.printerName);
-                        // // if system printer isn't found!!
-                        // if (!options.preview && printer_index == -1) {
-                        //     reject(new Error(options.printerName + ' not found. Check if this printer was added to your computer or try updating your drivers').toString());
-                        //     return;
-                        // }
-                        // else start initialize render prcess page
-                        return [4 /*yield*/, sendIpcMsg('body-init', mainWindow.webContents, options)];
+                        case 0:
+                            mainWindow.webContents.openDevTools();
+                            // get system printers
+                            // const system_printers = mainWindow.webContents.getPrinters();
+                            // const printer_index = system_printers.findIndex(sp => sp.name === options.printerName);
+                            // // if system printer isn't found!!
+                            // if (!options.preview && printer_index == -1) {
+                            //     reject(new Error(options.printerName + ' not found. Check if this printer was added to your computer or try updating your drivers').toString());
+                            //     return;
+                            // }
+                            // else start initialize render prcess page
+                            return [4 /*yield*/, sendIpcMsg('body-init', mainWindow.webContents, options)];
                         case 1:
                             // get system printers
                             // const system_printers = mainWindow.webContents.getPrinters();
