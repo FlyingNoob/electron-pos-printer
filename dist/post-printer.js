@@ -43,7 +43,6 @@ exports.PosPrinter = void 0;
 if (process.type == 'renderer') {
     throw new Error('electron-pos-printer: use remote.require("electron-pos-printer") in render process');
 }
-var electron = require('electron');
 var _a = require('electron'), BrowserWindow = _a.BrowserWindow, ipcMain = _a.ipcMain;
 // ipcMain.on('pos-print', (event, arg)=> {
 //     const {data, options} = JSON.parse(arg);
@@ -85,10 +84,9 @@ var PosPrinter = /** @class */ (function () {
                 }, timeOutPerline * data.length + 200);
             }
             // open electron window
-            var screenSize = electron.screen.getPrimaryDisplay().workAreaSize;
             var mainWindow = new BrowserWindow({
-                width: screenSize.width,
-                height: screenSize.height,
+                width: 210,
+                height: 1200,
                 show: !!options.preview,
                 webPreferences: {
                     nodeIntegration: true,
