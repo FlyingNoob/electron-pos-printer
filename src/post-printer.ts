@@ -69,6 +69,7 @@ export class PosPrinter {
             }));*/
             mainWindow.loadFile(__dirname + '/pos.html');
             mainWindow.webContents.on('did-finish-load', async () => {
+                mainWindow.webContents.openDevTools()
                 // get system printers
                 // const system_printers = mainWindow.webContents.getPrinters();
                 // const printer_index = system_printers.findIndex(sp => sp.name === options.printerName);
