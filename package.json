@@ -1,6 +1,6 @@
 {
   "name": "electron-pos-printer-arvin",
-  "version": "1.0.2",
+  "version": "1.0.8",
   "description": "Electron thermal 58mm printer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
