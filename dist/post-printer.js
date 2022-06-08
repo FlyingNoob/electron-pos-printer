@@ -108,6 +108,7 @@ var PosPrinter = /** @class */ (function () {
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0:
+                            mainWindow.webContents.openDevTools();
                             // get system printers
                             // const system_printers = mainWindow.webContents.getPrinters();
                             // const printer_index = system_printers.findIndex(sp => sp.name === options.printerName);
@@ -136,26 +137,24 @@ var PosPrinter = /** @class */ (function () {
                             return [2 /*return*/, PosPrinter.renderPrintDocument(mainWindow, data)
                                     .then(function () {
                                     if (!options.preview) {
-                                        setTimeout(() => {
-                                            mainWindow.webContents.print({
-                                                silent: !!options.silent,
-                                                printBackground: true,
-                                                deviceName: options.printerName,
-                                                copies: options.copies ? options.copies : 1,
-                                                pageSize: options.pageSize ? options.pageSize : 'A4'
-                                            }, function (arg, err) {
-                                                // console.log(arg, err);
-                                                if (err) {
-                                                    window_print_error = err;
-                                                    reject(err);
-                                                }
-                                                if (!printedState) {
-                                                    resolve({ complete: arg });
-                                                    printedState = true;
-                                                }
-                                                mainWindow.close();
-                                            });
-                                        }, 500);
+                                        mainWindow.webContents.print({
+                                            silent: !!options.silent,
+                                            printBackground: true,
+                                            deviceName: options.printerName,
+                                            copies: options.copies ? options.copies : 1,
+                                            pageSize: options.pageSize ? options.pageSize : 'A4'
+                                        }, function (arg, err) {
+                                            // console.log(arg, err);
+                                            if (err) {
+                                                window_print_error = err;
+                                                reject(err);
+                                            }
+                                            if (!printedState) {
+                                                resolve({ complete: arg });
+                                                printedState = true;
+                                            }
+                                            mainWindow.close();
+                                        });
                                     }
                                     else {
                                         resolve({ complete: true });
