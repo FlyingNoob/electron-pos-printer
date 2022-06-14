@@ -40,10 +40,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PosPrinter = void 0;
-if (process.type == 'renderer') {
-    throw new Error('electron-pos-printer: use remote.require("electron-pos-printer") in render process');
-}
-var _a = require('electron'), BrowserWindow = _a.BrowserWindow, ipcMain = _a.ipcMain;
+var remote_1 = require("@electron/remote");
 // ipcMain.on('pos-print', (event, arg)=> {
 //     const {data, options} = JSON.parse(arg);
 //     PosPrinter.print(data, options).then((arg)=>{
@@ -72,19 +69,19 @@ var PosPrinter = /** @class */ (function () {
             }
             // else
             var printedState = false; // If the job has been printer or not
-            var window_print_error = null; // The error returned if the printing fails
+            var window_print_error = ""; // The error returned if the printing fails
             var timeOutPerline = options.timeOutPerLine ? options.timeOutPerLine : 400;
             if (!options.preview || !options.silent) {
                 setTimeout(function () {
                     if (!printedState) {
-                        var errorMsg = window_print_error ? window_print_error : 'TimedOut';
+                        var errorMsg = window_print_error.length > 0 ? window_print_error : 'TimedOut';
                         reject(errorMsg);
                         printedState = true;
                     }
                 }, timeOutPerline * data.length + 200);
             }
             // open electron window
-            var mainWindow = new BrowserWindow({
+            var mainWindow = new remote_1.BrowserWindow({
                 width: 210,
                 height: 1200,
                 show: !!options.preview,
@@ -216,7 +213,7 @@ exports.PosPrinter = PosPrinter;
 */
 function sendIpcMsg(channel, webContents, arg) {
     return new Promise(function (resolve, reject) {
-        ipcMain.once("".concat(channel, "-reply"), function (event, result) {
+        remote_1.ipcMain.once(channel + "-reply", function (event, result) {
             if (result.status) {
                 resolve(result);
             }

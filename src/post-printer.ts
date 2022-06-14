@@ -3,13 +3,7 @@
  */
 
 import {PosPrintData, PosPrintOptions} from "./models";
-
-if ((process as any).type == 'renderer') {
-    throw new Error('electron-pos-printer: use remote.require("electron-pos-printer") in render process');
-}
-
-
-const {BrowserWindow, ipcMain} = require('electron');
+import {BrowserWindow, ipcMain} from "@electron/remote";
 // ipcMain.on('pos-print', (event, arg)=> {
 //     const {data, options} = JSON.parse(arg);
 //     PosPrinter.print(data, options).then((arg)=>{
@@ -35,12 +29,12 @@ export class PosPrinter {
             }
             // else
             let printedState = false; // If the job has been printer or not
-            let window_print_error = null; // The error returned if the printing fails
+            let window_print_error = ""; // The error returned if the printing fails
             let timeOutPerline = options.timeOutPerLine ? options.timeOutPerLine : 400;
             if (!options.preview || !options.silent) {
                 setTimeout(() => {
                     if (!printedState) {
-                        const errorMsg = window_print_error ? window_print_error: 'TimedOut';
+                        const errorMsg = window_print_error.length > 0 ? window_print_error: 'TimedOut';
                         reject(errorMsg);
                         printedState = true;
                     }

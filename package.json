@@ -1,6 +1,6 @@
 {
   "name": "electron-pos-printer-arvin",
-  "version": "1.0.14",
+  "version": "1.1.0",
   "description": "Electron Image printer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -32,14 +32,16 @@
     "url": "https://github.com/Hubertformin/electron-pos-printer/issues"
   },
   "homepage": "https://github.com/Hubertformin/electron-pos-printer#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@electron/remote": "^2.0.8"
+  },
   "devDependencies": {
     "@types/node": "^16.9.2",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "electron": "^14.0.1",
+    "electron": "^19.0.4",
     "mocha": "^6.2.3",
-    "spectron": "^9.0.0",
+    "spectron": "^19.0.0",
     "typescript": "^3.9.6",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
