@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 // const ipcRender = require('electron').ipcRenderer;
-import {ipcRender } from '@electron/remote'
+const ipcRender = require('@electron/remote').ipcRender
 const body = $('#main');
 let barcodeNumber = 0;
 const image_format = ['apng', 'bmp', 'gif', 'ico', 'cur', 'jpeg', 'jpg', 'jpeg', 'jfif', 'pjpeg',
