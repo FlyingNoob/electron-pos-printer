@@ -5,18 +5,18 @@
 const fs = require('fs');
 const path = require('path');
 // const ipcRender = require('electron').ipcRenderer;
-const ipcRender = require('@electron/remote').ipcRender
+const { ipcRenderer } = require('electron')
 const body = $('#main');
 let barcodeNumber = 0;
 const image_format = ['apng', 'bmp', 'gif', 'ico', 'cur', 'jpeg', 'jpg', 'jpeg', 'jfif', 'pjpeg',
     'pjp', 'png', 'svg', 'tif', 'tiff', 'webp'];
 
-ipcRender.on('body-init', function (event, arg) {
+    ipcRenderer.on('body-init', function (event, arg) {
     body.css({width: arg.width ? arg.width : 170 , margin: arg.margin ? arg.margin : 0});
     event.sender.send('body-init-reply', {status: true, error: null});
 });
 // render each line
-ipcRender.on('render-line', function (event, arg) {
+ipcRenderer.on('render-line', function (event, arg) {
     renderDataToHTML(event, arg);
 });
 
