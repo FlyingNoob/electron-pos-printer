@@ -1,6 +1,6 @@
 {
   "name": "electron-pos-printer-arvin",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Electron Image printer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
